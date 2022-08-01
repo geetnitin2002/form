@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Map from "./components/Map";
+import AddressForm from "./components/AddressForm";
+import { createContext, useState } from "react";
+
+export const ApplicationContext = createContext();
 
 function App() {
+  const [data, setData] = useState({
+    addressline1: "",
+    addressline2: "",
+    area: "",
+    city: "",
+    postalcode: "",
+    latitude: "",
+    longitude: "",
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApplicationContext.Provider value={{ data, setData }}>
+      <div className="App">
+        <AddressForm />
+        <h4>Please give location permission</h4>
+        <Map />
+      </div>
+    </ApplicationContext.Provider>
   );
 }
 

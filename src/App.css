@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.addressform{
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+input{
+  margin: 5px;
+}
+
+.leaflet-container{
+  height: 50vh;
+  width: 100vw;
+}
